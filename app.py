@@ -79,7 +79,7 @@ def categorize_notes(note):
         return "Bien (14-16)"
     else:
         return "Très bien (>16)"
-
+df["Note"] = pd.to_numeric(df["Note"], errors='coerce').fillna(0)
 df["Catégorie de notes"] = df["Note"].apply(categorize_notes)
 
 # Afficher les statistiques des notes sous forme de pie charts
