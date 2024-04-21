@@ -2,13 +2,13 @@ import streamlit as st
 import pandas as pd
 import os 
 
-csv_file_path = st.secrets["csv_file_path"]
+csv_file_path = "1LM.csv"
 # Chargement du fichier CSV en nettoyant les espaces dans la colonne Email
 df = pd.read_csv(csv_file_path, delimiter=";", converters={"Email": lambda x: x.strip()})
 
 # Titre de l'application
-st.title("NOTES DE DS PYTHON 1LM A.U 2023-2024")
-
+st.title("NOTES DE DS PYTHON")
+st.header("1LM A.U 2023-2024")
 # Champ de saisie pour l'email de l'étudiant
 email = st.text_input("Saisissez votre email")
 
