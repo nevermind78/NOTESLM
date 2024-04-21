@@ -21,6 +21,8 @@ def categorize_notes(note):
         return "Bien (14-16)"
     else:
         return "Très bien (>16)"
+df["Note"] = pd.to_numeric(df["Note"], errors='coerce').fillna(0)
+df["Catégorie de notes"] = df["Note"].apply(categorize_notes)
 # Vérification si l'email existe dans le fichier CSV
 if email:
     if email in df["Email"].values:
@@ -45,8 +47,7 @@ if email:
 
 
 
-df["Note"] = pd.to_numeric(df["Note"], errors='coerce').fillna(0)
-df["Catégorie de notes"] = df["Note"].apply(categorize_notes)
+
 
 
 # Calculer les statistiques des notes pour le pie chart
