@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os 
-
+import matplotlib.pyplot as plt
 csv_file_path = st.secrets["csv_file_path"]
 # Chargement du fichier CSV en nettoyant les espaces dans la colonne Email
 df = pd.read_csv(csv_file_path, delimiter=";", converters={"Email": lambda x: x.strip()})
@@ -27,3 +27,9 @@ if email:
         st.success(f"La note de l'étudiant est : {note}")
     else:
         st.error("Email non trouvé")
+
+st.write("Statistiques des notes :")
+fig, ax = plt.subplots()
+ax.pie(df["Note"].value_counts(), labels=df["Note"].value_counts().index, autopct='%1.1f%%', startangle=90)
+ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+st.pyplot(fig)
