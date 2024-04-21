@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-# Chargement du fichier CSV
-df = pd.read_csv("1LM.csv", delimiter=";")
+# Chargement du fichier CSV en nettoyant les espaces dans la colonne Email
+df = pd.read_csv("1LM.csv", delimiter=";", converters={"Email": lambda x: x.strip()})
 
 # Titre de l'application
 st.title("NOTES DE DS PYTHON 1LM A.U 2023-2024")
