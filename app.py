@@ -37,11 +37,7 @@ if email:
         st.success(f"Groupe de l'étudiant : {groupe}")
         st.success(f"La note de l'étudiant est : {note}")
         n = df[df["Email"] == email]["Note"].values[0]
-        if type(n)==str:
-            st.warning("A : Abscent")
-        else:
-            st.success(f"{categorize_notes(n)}")
-        
+ 
 
     else:
         st.error("Email non trouvé")
