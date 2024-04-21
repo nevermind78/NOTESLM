@@ -39,5 +39,11 @@ def categorize_notes(note):
         return "Très bien (>16)"
 
 
-unique_notes = df["Note"].unique()
-st.write("Valeurs uniques dans la colonne 'Note':", unique_notes)
+df["Catégorie de notes"] = df["Note"].apply(categorize_notes)
+
+# Afficher les statistiques des notes sous forme de pie charts
+st.write("Statistiques des notes :")
+fig, ax = plt.subplots()
+ax.pie(df["Catégorie de notes"].value_counts(), labels=df["Catégorie de notes"].value_counts().index, autopct='%1.1f%%', startangle=90)
+ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+st.pyplot(fig)
