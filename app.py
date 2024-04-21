@@ -8,7 +8,7 @@ csv_file_path = st.secrets["csv_file_path"]
 df = pd.read_csv(csv_file_path, delimiter=";", converters={"Email": lambda x: x.strip()})
 
 # Titre de l'application
-st.title("NOTES DE DS PYTHON")
+st.title("NOTES DU DS PYTHON")
 st.header("1LM A.U 2023-2024")
 # Champ de saisie pour l'email de l'étudiant
 email = st.text_input("Saisissez votre email")
@@ -31,13 +31,10 @@ if email:
         nom = etudiant["Name"].values[0]
         groupe = etudiant["GROUP"].values[0]
         note = etudiant["Note"].values[0]
-        
         # Affichage des informations de l'étudiant
         st.success(f"Nom de l'étudiant : {nom}")
         st.success(f"Groupe de l'étudiant : {groupe}")
         st.success(f"La note de l'étudiant est : {note}")
-        n = df[df["Email"] == email]["Note"].values[0]
- 
 
     else:
         st.error("Email non trouvé")
