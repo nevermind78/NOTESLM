@@ -38,7 +38,7 @@ def categorize_notes(note):
     else:
         return "Très bien (>16)"
 
-df["Catégorie de notes"] = df["Note"].apply(categorize_notes)
+df["Catégorie de notes"] = df["Note"].astype(float()).apply(categorize_notes)
 
 # Afficher les statistiques des notes sous forme de pie charts
 st.write("Statistiques des notes :")
