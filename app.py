@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import os 
 
-csv_file_path = "1LM.csv"
+csv_file_path = st.secrets["csv_file_path"]
 # Chargement du fichier CSV en nettoyant les espaces dans la colonne Email
 df = pd.read_csv(csv_file_path, delimiter=";", converters={"Email": lambda x: x.strip()})
 
