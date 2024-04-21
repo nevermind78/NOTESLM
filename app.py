@@ -12,7 +12,15 @@ st.title("NOTES DE DS PYTHON")
 st.header("1LM A.U 2023-2024")
 # Champ de saisie pour l'email de l'étudiant
 email = st.text_input("Saisissez votre email")
-
+def categorize_notes(note):
+    if note < 10:
+        return "Insuffisant (<10)"
+    elif 10 <= note < 12:
+        return "Passable (10-12)"
+    elif 14 <= note < 16:
+        return "Bien (14-16)"
+    else:
+        return "Très bien (>16)"
 # Vérification si l'email existe dans le fichier CSV
 if email:
     if email in df["Email"].values:
@@ -28,19 +36,14 @@ if email:
         st.success(f"La note de l'étudiant est : {note}")
         if type(note)==str:
             st.warning("A : Abscent")
+        else:
+            st.success(f"{categorize_notes(note)}")
+        
 
     else:
         st.error("Email non trouvé")
 
-def categorize_notes(note):
-    if note < 10:
-        return "Insuffisant (<10)"
-    elif 10 <= note < 12:
-        return "Passable (10-12)"
-    elif 14 <= note < 16:
-        return "Bien (14-16)"
-    else:
-        return "Très bien (>16)"
+
 
 df["Note"] = pd.to_numeric(df["Note"], errors='coerce').fillna(0)
 df["Catégorie de notes"] = df["Note"].apply(categorize_notes)
