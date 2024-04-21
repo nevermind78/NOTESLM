@@ -28,8 +28,21 @@ if email:
     else:
         st.error("Email non trouvé")
 
+def categorize_notes(note):
+    if note < 10:
+        return "Insuffisant (<10)"
+    elif 10 <= note < 12:
+        return "Passable (10-12)"
+    elif 14 <= note < 16:
+        return "Bien (14-16)"
+    else:
+        return "Très bien (>16)"
+
+df["Catégorie de notes"] = df["Note"].apply(categorize_notes)
+
+# Afficher les statistiques des notes sous forme de pie charts
 st.write("Statistiques des notes :")
 fig, ax = plt.subplots()
-ax.pie(df["Note"].value_counts(), labels=df["Note"].value_counts().index, autopct='%1.1f%%', startangle=90)
+ax.pie(df["Catégorie de notes"].value_counts(), labels=df["Catégorie de notes"].value_counts().index, autopct='%1.1f%%', startangle=90)
 ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 st.pyplot(fig)
