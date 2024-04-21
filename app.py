@@ -40,7 +40,7 @@ if email:
         if type(n)==str:
             st.warning("A : Abscent")
         else:
-            st.success(f"{categorize_notes(note)}")
+            st.success(f"{categorize_notes(n)}")
         
 
     else:
