@@ -76,7 +76,5 @@ figtp = px.pie(values=stats_notesTP, names=stats_notesTP.index, title="Statistiq
 col1.plotly_chart(figtp)
 col2.plotly_chart(figds)
 
-# Créer le pie chart avec Plotly
-fig = px.pie(values=stats_notes, names=stats_notes.index, title="Statistiques des notes")
-st.plotly_chart(fig)
+
 
