@@ -68,7 +68,6 @@ if email:
 stats_notesDS = df["Catégorie de notes DS"].value_counts()
 stats_notesTP = df["Catégorie de notes TP"].value_counts()
 
-<<<<<<< HEAD
 
 # Créer le pie chart avec Plotly en spécifiant la taille
 col1,_,col2 = st.columns(3)
@@ -76,8 +75,8 @@ figds = px.pie(values=stats_notesDS, names=stats_notesDS.index, title="Statistiq
 figtp = px.pie(values=stats_notesTP, names=stats_notesTP.index, title="Statistiques des notes TP", width=350, height=350)
 col1.plotly_chart(figtp)
 col2.plotly_chart(figds)
-=======
+
 # Créer le pie chart avec Plotly
 fig = px.pie(values=stats_notes, names=stats_notes.index, title="Statistiques des notes")
 st.plotly_chart(fig)
->>>>>>> afc25d77b1b966d519fdf7746ce655ac23e9ed2d
+
