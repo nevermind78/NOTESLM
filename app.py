@@ -20,13 +20,13 @@ def categorize_notes(note):
         return "Insuffisant (<10)"
     elif 10 <= note < 12:
         return "Passable (10-12)"
-<<<<<<< HEAD
+
     elif 12 <= note < 14:
         return "Bien (12-14)"
-=======
+
     elif 12<= note < 14:
         return "Assez Bien(12-14)"
->>>>>>> afc25d77b1b966d519fdf7746ce655ac23e9ed2d
+
     elif 14 <= note < 16:
         return "Bien (14-16)"
     else:
